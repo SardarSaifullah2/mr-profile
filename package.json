@@ -9,7 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@auth/mongodb-adapter": "^2.0.10",
+=======
+     "@auth/mongodb-adapter": "^2.0.10",
+>>>>>>> c4072e60ed0f10041258de6f90146234338ec04c
     "@aws-sdk/client-s3": "^3.485.0",
     "mongodb": "^6.3.0",
     "mongoose": "^8.0.3",
