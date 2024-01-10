@@ -65,7 +65,7 @@ export function UseFullLinks({PageData}){
                 {
                     links?.map((item,index) =>{
                     return(
-                        <div key={item.key} className="grid grid-cols-2 gap-8 pt-3">
+                        <div key={item.key} key={index}  className="grid grid-cols-2 gap-8 pt-3">
                             <div className="flex flex-col gap-2">
                                 <label className="uppercase text-gray-500 text-sm">Label</label>
                                 <input type='text' value={item.title} onChange={ev => changeText(item.key , ev , 'title')} className="w-full outline-none px-5 rounded-xl py-2 text-black/80" required/>
