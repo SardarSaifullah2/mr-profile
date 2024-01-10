@@ -1,11 +1,13 @@
-import { MongoDBAdapter } from "@auth/mongodb-adapter";
+import { MongoDBAdapter, MongoDBAdapterOptions } from "@auth/mongodb-adapter";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from 'next-auth/providers/google'
 import clientPromise from "@/config/config";
 
+const option :MongoDBAdapterOptions = {
+}
 export const authOptions = {
-    adapter : MongoDBAdapter(clientPromise) ,
-    secret:process.env.NEXT_AUTH_SECRET ,
+    secret:process.env.NEXT_AUTH_SECRET  as string,
+    adapter : MongoDBAdapter(clientPromise , option),
     providers:[
         GithubProvider({
            clientId : process.env.GITHUB_CLIENT_ID as string ,

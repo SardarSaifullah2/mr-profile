@@ -3,12 +3,27 @@ import { Page } from "@/models/profileDataSchema"
 import mongoose from "mongoose"
 import Session from "@/config/session"
 
-export async function ProfileData(formData) {
+
+type Links = {
+    key : number ;
+    title : string ;
+    link : string;
+}
+type Sponser = {
+    title : string ;
+    link : string;
+}
+
+
+
+
+
+export async function ProfileData(formData : FormData) {
     const user =await Session()
     const username = formData.get('username')
     if(user){
         const email = user?.email
-        await mongoose.connect(process.env.MONGODB_URL!)
+        await mongoose.connect(process.env.MONGODB_URL!  as string)
         const checkUser = await Page.findOne({uri : username})
         if(checkUser){
             return false
@@ -23,17 +38,17 @@ export async function ProfileData(formData) {
    
 }
 
-export async function ProfileFormData(formData){
+export async function ProfileFormData(formData : FormData){
     const user =await Session()
     if(user){
         const email = user.email
-        await mongoose.connect(process.env.MONGODB_URL!)
+        await mongoose.connect(process.env.MONGODB_URL!  as string)
         const checkUser = await Page.findOne({owner : email})
         if(checkUser){
             const formValue = ['displayName' , 'bio' , 'color' ,'location' , 'profileImg' , 'jobTitle']
-            const formFillValue = []
+            const formFillValue: Record<string, string>[] = [];
              for (const field of formValue ){
-                formFillValue[field] = formData.get(field)
+                formFillValue.push({ [field]: formData.get(field) as string })
             }
            try {
             await Object.assign(checkUser , formFillValue)
@@ -51,17 +66,17 @@ export async function ProfileFormData(formData){
 
 }
 
-export async function ProfileButton(formData){
+export async function ProfileButton(formData : FormData){
     const user =await Session()
     if(user){
         const email = user.email
-        await mongoose.connect(process.env.MONGODB_URL!)
+        await mongoose.connect(process.env.MONGODB_URL!  as string)
         const checkUser = await Page.findOne({owner : email})
         if(checkUser){
             const formValue = [ 'gmail' , 'instagram' , 'facebook' , 'linkedin']
-            const formFillValue = []
+            const formFillValue: Record<string, string>[] = [];
              for (const field of formValue ){
-                formFillValue[field] = formData.get(field)
+                formFillValue.push({ [field]: formData.get(field) as string })
             }
            try {
             await Object.assign(checkUser , formFillValue)
@@ -80,12 +95,12 @@ export async function ProfileButton(formData){
 }
 
 
-export async function UseFullLinkData(links){
+export async function UseFullLinkData(links : Links[]){
     const user =await Session()
     console.log(links)
     if(user){
         const email = user.email
-        await mongoose.connect(process.env.MONGODB_URL!)
+        await mongoose.connect(process.env.MONGODB_URL!  as string)
         const checkUser = await Page.findOne({owner : email})
         if(checkUser){
             checkUser.customsLinks = links
@@ -96,11 +111,11 @@ export async function UseFullLinkData(links){
     }
     return false
 }
-export async function sponserData(sponser){
+export async function sponserData(sponser : Sponser[]){
     const user =await Session()
     if(user){
         const email = user.email
-        await mongoose.connect(process.env.MONGODB_URL!)
+        await mongoose.connect(process.env.MONGODB_URL!  as string)
         const checkUser = await Page.findOne({owner : email})
         if(checkUser){
             checkUser.sponser = sponser

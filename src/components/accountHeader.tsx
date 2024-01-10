@@ -8,7 +8,7 @@ export default async function AccountHeader(){
     return(
         <div className="w-[300px] min-h-[100vh] h-full bg-gray-300 border-l border-gray-500 flex justify-center ">
             <div className="flex flex-col gap-3 items-center py-6 px-3 fixed">
-                <Image src={user?.image} width={150} height={150} className="rounded-full"></Image> 
+                <Image src={user?.image} width={150} height={150} className="rounded-full" alt="userImage"></Image> 
                 <h2 
                     className="text-2xl font-semibold text-black/80 capitalize"
                 >

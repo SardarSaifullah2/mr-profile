@@ -11,7 +11,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Toaster></Toaster>
+        <Toaster/>
           <main className="flex gap-2">
           <aside>
             <AccountHeader/>

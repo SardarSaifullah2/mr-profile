@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation"
 
-export default async function Hero() {
+export default function Hero() {
     async function submitFunction(formData){
         const InputData = await formData.get('username')
         redirect('/account?username=' + InputData)

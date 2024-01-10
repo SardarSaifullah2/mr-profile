@@ -1,6 +1,6 @@
 import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3'
 import uniqid from 'uniqid'
-export async function POST(req) {
+export async function POST(req :any) {
     const formdata = await req.formData()
     console.log(formdata)
     const file = await formdata.get('file')

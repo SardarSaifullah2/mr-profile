@@ -10,7 +10,7 @@ import { UseFullLinks } from "@/components/forms/useFullLinks"
 import { SponserForm } from "@/components/forms/sponser"
 
 
-export default async function Page({searchParams}){
+export default async function Page({searchParams}:any){
    const PageData = await ConnectDb()
    const user = await Session()
    const uri = PageData?.uri

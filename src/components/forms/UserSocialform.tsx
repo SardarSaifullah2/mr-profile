@@ -6,7 +6,7 @@ import { ProfileFormData } from "@/actions/profileDataCollection"
 import { ProfileButton } from "@/actions/profileDataCollection" 
 import toast from "react-hot-toast"
 
-export function UserSocialForm({PageData}){
+export function UserSocialForm({PageData} : any){
     const [gmail , setGmail] = useState(PageData.gmail ||'')
     const [instagram , setInstagram] = useState(PageData.instagram ||'')
     const [linkedin , setLinkedin] = useState(PageData.linkedin ||'')

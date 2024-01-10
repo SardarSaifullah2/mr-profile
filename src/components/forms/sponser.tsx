@@ -3,7 +3,7 @@ import { useState } from "react"
 import { SubmitButton } from "../buttons/submitButton"
 import { sponserData } from "@/actions/profileDataCollection"
 import toast from "react-hot-toast"
-export function SponserForm({PageData}){
+export function SponserForm({PageData} : any){
     const [sponser , setSponser] = useState(PageData.sponser ||{title : "" , link : ""})
     async function submit(){
         console.log(sponser)

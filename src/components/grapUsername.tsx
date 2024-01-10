@@ -3,7 +3,7 @@
 import { ProfileData } from "@/actions/profileDataCollection"
 import { useRouter } from "next/navigation"
 
-export default function GrapUsername({searchUsername}) {
+export default function GrapUsername({searchUsername} : any) {
     const router = useRouter()
     async function formActionHandle(formData){
         const result = await ProfileData(formData)

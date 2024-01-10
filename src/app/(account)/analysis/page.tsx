@@ -3,7 +3,7 @@ import { Event } from "@/models/eventSchema"
 import mongoose from "mongoose"
 
 export default async function Analysis(){
-    await mongoose.connect(process.env.MONGODB_URL)
+    await mongoose.connect(process.env.MONGODB_URL as string)
     const PageDate = await ConnectDb()
     const { uri } = PageDate
     const evet = await Event.aggregate([

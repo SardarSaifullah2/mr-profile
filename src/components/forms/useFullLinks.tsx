@@ -4,7 +4,7 @@ import { FaCirclePlus, FaTrash } from "react-icons/fa6";
 import { SubmitButton } from "../buttons/submitButton";
 import { UseFullLinkData } from "@/actions/profileDataCollection";
 import toast from "react-hot-toast";
-export function UseFullLinks({PageData}){
+export function UseFullLinks({PageData} : any){
     const [links , setLinks] = useState(PageData?.customsLinks || [])
     async function AddLink(ev){
         ev.preventDefault();

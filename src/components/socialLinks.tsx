@@ -4,7 +4,7 @@ import { FaGithub } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import Link from "next/link";
-export default function SocailLinks({Data}){
+export default function SocailLinks({Data} : any){
     
     return(
         <div className="flex gap-2">
