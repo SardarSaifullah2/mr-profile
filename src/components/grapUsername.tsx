@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation"
 
 export default function GrapUsername({searchUsername} : any) {
     const router = useRouter()
-    async function formActionHandle(formData){
+    async function formActionHandle(formData : FormData){
         const result = await ProfileData(formData)
         if(result === true) {
             router.push(`/account?createdUser=${formData.get('username')}`)

@@ -8,7 +8,7 @@ export async function ConnectDb(){
     return UserData
 }
 
-export async function FindUriDb(uri){
+export async function FindUriDb(uri : any){
     await mongoose.connect(process.env.MONGODB_URL! as string)
     const UserData = await Page.findOne({uri: uri})
     if(UserData){

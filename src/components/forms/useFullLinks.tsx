@@ -5,19 +5,19 @@ import { SubmitButton } from "../buttons/submitButton";
 import { UseFullLinkData } from "@/actions/profileDataCollection";
 import toast from "react-hot-toast";
 export function UseFullLinks({PageData} : any){
-    const [links , setLinks] = useState(PageData?.customsLinks || [])
-    async function AddLink(ev){
+    const [links , setLinks] = useState<any>(PageData?.customsLinks || [])
+    async function AddLink(ev : any){
         ev.preventDefault();
-        setLinks(prevsLink => {
+        setLinks((prevsLink : any) => {
             return [...prevsLink , {key: Date.now().toString() , title : '' , link : ''} ]
         })
     }
-    async function changeText(key , ev , field){
-        setLinks(prevsLinks => prevsLinks.map(item => item.key === key ? {...item , [field] : ev.target.value} : item))    
+    async function changeText(key : number , ev : any , field : string){
+        setLinks((prevsLinks : any) => prevsLinks.map((item : any) => item.key === key ? {...item , [field] : ev.target.value} : item))    
     }
 
-    async function deleteHandle(key){
-        const filterLinks = links.filter(item => item.key !== key)
+    async function deleteHandle(key : number){
+        const filterLinks = links.filter((item : any) => item.key !== key)
         setLinks(filterLinks)
     }
     async function submit(){
@@ -63,7 +63,7 @@ export function UseFullLinks({PageData} : any){
             </div>
             <form action={submit}>
                 {
-                    links?.map((item,index) =>{
+                    links?.map((item : any,index : number) =>{
                     return(
                         <div key={item.index}  className="grid grid-cols-2 gap-8 pt-3">
                             <div className="flex flex-col gap-2">

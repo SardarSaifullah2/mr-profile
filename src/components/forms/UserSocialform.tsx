@@ -12,7 +12,7 @@ export function UserSocialForm({PageData} : any){
     const [linkedin , setLinkedin] = useState(PageData.linkedin ||'')
     const [facebook , setFacebook] = useState(PageData.facebook ||'')
 
-    async function submit(formData) {
+    async function submit(formData : FormData) {
         const result = await ProfileButton(formData)
         if(result === true){
             toast.success('Saved!')

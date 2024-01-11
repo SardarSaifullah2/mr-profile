@@ -3,10 +3,14 @@ import { useState } from "react"
 import { SubmitButton } from "../buttons/submitButton"
 import { sponserData } from "@/actions/profileDataCollection"
 import toast from "react-hot-toast"
+
+export type SponserState = {
+     title : string ;
+     link : string ;
+ }
 export function SponserForm({PageData} : any){
-    const [sponser , setSponser] = useState(PageData.sponser ||{title : "" , link : ""})
+    const [sponser , setSponser] = useState<any>(PageData.sponser[0] ||{title : "" , link : ""})
     async function submit(){
-        console.log(sponser)
         const result = await sponserData(sponser)
         if(result === true){
             toast.success('saved successfully')
@@ -25,7 +29,7 @@ export function SponserForm({PageData} : any){
                             type='text' 
                             value={sponser.title} 
                             placeholder="enter you title"
-                            onChange={ev => setSponser(prev =>({...prev , title: ev.target.value}))}
+                            onChange={ev => setSponser((prev : any) =>({...prev , title: ev.target.value}))}
                             className="outline-none px-5 rounded-xl py-2 text-black/80 w-full"
                         />
                     </div>
@@ -36,7 +40,7 @@ export function SponserForm({PageData} : any){
                         type="text" 
                         value={sponser.link} 
                         placeholder="enter you link"
-                        onChange={ev => setSponser(prev =>( {...prev , link: ev.target.value}))}
+                        onChange={ev => setSponser((prev :any) =>( {...prev , link: ev.target.value}))}
                         className="outline-none px-5 rounded-xl py-2 text-black/80"
                     />
                     </div>

@@ -4,7 +4,7 @@ import Link from "next/link";
 export function UsefulLinkComponent({ Data, uri }: any) {
   return (
     <div>
-      {Data && Data.map((item, index) => {
+      {Data && Data.map((item : any, index :any ) => {
         return (
           <div className="w-full" key={index}>
             <article className="bg-black text-white rounded-xl w-full text-center px-4 py-3 text-[15px] font-medium hover:bg-white hover:text-black transition duration-1000">

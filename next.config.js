@@ -10,6 +10,9 @@ const nextConfig = {
         },
         {
             hostname : "*.amazonaws.com"
+        } ,
+        {
+            hostname : "*.freepik.com"
         }
     ]
     }

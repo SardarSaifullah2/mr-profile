@@ -1,6 +1,6 @@
 import { useFormStatus } from "react-dom"
 
-export function SubmitButton ({children}){
+export function SubmitButton ({children}:any){
     const {pending} = useFormStatus()
     return(
         <main>

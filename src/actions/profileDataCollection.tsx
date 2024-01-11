@@ -13,6 +13,7 @@ type Sponser = {
     title : string ;
     link : string;
 }
+import { SponserState } from "@/components/forms/sponser"
 
 
 
@@ -111,7 +112,7 @@ export async function UseFullLinkData(links : Links[]){
     }
     return false
 }
-export async function sponserData(sponser : Sponser[]){
+export async function sponserData(sponser : any){
     const user =await Session()
     if(user){
         const email = user.email

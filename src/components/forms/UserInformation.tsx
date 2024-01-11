@@ -36,7 +36,7 @@ export default function UserInformation({PageData} : any) {
             toast.error('Error , Not Saved!')
         }
     }
-    async function uploadHandle(ev){
+    async function uploadHandle(ev :any){
         const file = ev?.target?.files?.[0]
         if(file){
             const data = new FormData
@@ -69,7 +69,10 @@ export default function UserInformation({PageData} : any) {
                 <div className="flex flex-col gap-3 py-10">
                 <div className="w-[150px] mx-auto relative  -top-36 ">
                     <label>
-                        <Image src={porfileImg} width={100} height={100} alt="profileImage" className="rounded-full absolute top-0 min-w-[150px] min-h-[150px] object-center border-8 border-white"/>
+                        {
+                            porfileImg &&  <Image src={porfileImg} width={100} height={100} alt="profileImage" className="rounded-full absolute top-0 min-w-[150px] min-h-[150px] object-center border-8 border-white"/>
+                        }
+                        
                         <BiSolidEditAlt className="absolute text-4xl p-2 bg-white text-blue-500 rounded-full"/>
                         <input type="file" className="hidden" onChange={ev => uploadHandle(ev)}></input>
                         <input type="hidden" name="profileImg" value={porfileImg}></input>
